@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "Activity of the day",
   "projects": {
     "atividadesDoDia": {
       "projectType": "application",
@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "activity",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",

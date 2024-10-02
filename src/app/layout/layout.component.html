@@ -1,0 +1,8 @@
+<activity-empty
+  *ngIf="layout === 'empty'"
+  [ngClass]="darkModeService.darkModeSignal()"
+></activity-empty>
+<activity-sidebar
+  *ngIf="layout === 'sidebar'"
+  [ngClass]="darkModeService.darkModeSignal()"
+></activity-sidebar>
