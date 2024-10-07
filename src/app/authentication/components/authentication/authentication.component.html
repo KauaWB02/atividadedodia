@@ -1,1 +1,23 @@
-<div class="w-2/4 h-2/4 m-auto bg-black"></div>
+<div
+  class="bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 bg-200% animate-wave h-screen flex justify-center items-center"
+>
+  <!-- Conteúdo do login -->
+  <div class="bg-white p-8 rounded-lg shadow-lg">
+    <!-- Formulário de login -->
+    <form [formGroup]="form">
+      <activity-form-input
+        [inputControl]="email"
+        dataCy="email"
+        label="E-mail"
+        type="text"
+      ></activity-form-input>
+
+      <activity-form-input
+        [inputControl]="password"
+        dataCy="password"
+        label="Senha"
+        type="password"
+      ></activity-form-input>
+    </form>
+  </div>
+</div>
