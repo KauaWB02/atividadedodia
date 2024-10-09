@@ -10,9 +10,16 @@ export class AuthenticationComponent implements OnInit {
     email: new FormControl(null, [Validators.required]),
     password: new FormControl(),
   });
+  public show: boolean = false;
+  public type: string = 'password';
 
   ngOnInit(): void {
     console.log('Testando');
+  }
+
+  public showPassword() {
+    this.show = !this.show;
+    this.type = this.show ? 'text' : 'password';
   }
 
   get email(): FormControl {

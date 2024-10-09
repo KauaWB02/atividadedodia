@@ -1,7 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { DarkModeService } from '../../service/darkMode/dark-mode.service';
-import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,16 +6,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './form-input.component.html',
 })
 export class FormInputComponent implements OnInit {
-  @Input() dataCy!: string;
+  @Input() id: string = 'name';
+  @Input() type: string = 'text';
+  @Input() label: string = 'Nome';
+  @Input() dataCy: string = 'name';
   @Input() formGroup!: FormGroup;
-  @Input() label!: string;
+  @Input() placeHolder: string =
+    'Adicione seu PlaceHolder na chamado do componente';
   @Input() inputControl!: FormControl;
-  @Input() type!: string;
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.inputControl);
-    console.log('Testando');
-  }
+  ngOnInit(): void {}
 }

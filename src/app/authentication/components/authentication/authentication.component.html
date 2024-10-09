@@ -3,21 +3,43 @@
 >
   <!-- Conteúdo do login -->
   <div class="bg-white p-8 rounded-lg shadow-lg">
+    <div class="title mb-4 w-full text-center">
+      <h1 class="">Atividade do Dia</h1>
+    </div>
+
     <!-- Formulário de login -->
     <form [formGroup]="form">
-      <activity-form-input
-        [inputControl]="email"
-        dataCy="email"
-        label="E-mail"
-        type="text"
-      ></activity-form-input>
+      <div class="form-group flex flex-col gap-4">
+        <activity-form-input
+          [inputControl]="email"
+          dataCy="email"
+          label="E-mail"
+          type="text"
+          placeHolder="Adicione seu E-mail"
+        ></activity-form-input>
 
-      <activity-form-input
-        [inputControl]="password"
-        dataCy="password"
-        label="Senha"
-        type="password"
-      ></activity-form-input>
+        <activity-form-input
+          [inputControl]="password"
+          dataCy="password"
+          label="Senha"
+          [type]="type"
+          placeHolder="Adicione sua senha"
+        >
+          <ng-container showPassword>
+            <div class="absolute top-[55%] left-3/4">
+              @if (show) {
+              <button (click)="showPassword()">
+                <i class="material-icons">visibility</i>
+              </button>
+              } @else {
+              <button (click)="showPassword()">
+                <i class="material-icons">visibility_off</i>
+              </button>
+              }
+            </div>
+          </ng-container>
+        </activity-form-input>
+      </div>
     </form>
   </div>
 </div>
