@@ -1,38 +1,52 @@
 <div
-  class="bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 bg-200% animate-wave h-screen flex justify-center items-center"
->
+  class="bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 bg-200% animate-wave h-screen flex justify-center items-center">
   <!-- Conteúdo do login -->
-  <div class="bg-white p-8 rounded-lg shadow-lg">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-1/3 flex flex-col gap-4">
     <div class="title mb-4 w-full text-center">
-      <h1 class="">Atividade do Dia</h1>
+      <img
+        class="w-40 m-auto"
+        src="./assets/logo.png"
+        alt="" />
     </div>
 
     <!-- Formulário de login -->
-    <form [formGroup]="form">
-      <div class="form-group flex flex-col gap-4">
+    <form
+      [formGroup]="form"
+      class="flex flex-col gap-4">
+      <div class="form-group  flex flex-col gap-4">
         <activity-form-input
+          [containerInputAndLabel]="'!gap-0'"
           [inputControl]="email"
           dataCy="email"
+          [errorMessageNextToInput]="false"
+          [containerInputAndMessageErro]="'!gap-0'"
           label="E-mail"
           type="text"
-          placeHolder="Adicione seu E-mail"
-        ></activity-form-input>
+          id="e"
+          placeHolder="Digite seu E-mail"></activity-form-input>
 
         <activity-form-input
+          [containerInputAndLabel]="'!gap-0'"
           [inputControl]="password"
+          [errorMessageNextToInput]="false"
+          [containerInputAndMessageErro]="'!gap-0'"
+          [type]="type"
           dataCy="password"
           label="Senha"
-          [type]="type"
-          placeHolder="Adicione sua senha"
-        >
+          id="password"
+          placeHolder="Digite sua senha">
           <ng-container showPassword>
-            <div class="absolute top-[55%] left-3/4">
+            <div class="absolute top-[13%] left-[94%]">
               @if (show) {
-              <button (click)="showPassword()">
+              <button
+                type="button"
+                (click)="showPassword()">
                 <i class="material-icons">visibility</i>
               </button>
               } @else {
-              <button (click)="showPassword()">
+              <button
+                type="button"
+                (click)="showPassword()">
                 <i class="material-icons">visibility_off</i>
               </button>
               }
@@ -40,6 +54,18 @@
           </ng-container>
         </activity-form-input>
       </div>
+      <activity-button
+        (emitClickEvent)="login($event)"
+        [loading]="loading"
+        [disable]="form.invalid"
+        [typeButton]="'submit'"
+        [buttonLabel]="'Entrar'"
+        [activateIcon]="false"
+        [iconPossition]="'PREFIX'"
+        [iconLabel]="''"
+        [buttonClass]="
+          'bg-gradient-to-r from-blue-300 to-blue-600 bg-[length:200%_100%] bg-rightleft hover:bg-right transition-all duration-500'
+        "></activity-button>
     </form>
   </div>
 </div>

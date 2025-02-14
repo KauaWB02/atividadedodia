@@ -7,10 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [AuthenticationComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule.forChild(AuthenticationRoutes),
-  ],
+  imports: [CommonModule, SharedModule, RouterModule.forChild(AuthenticationRoutes)],
 })
 export class AuthenticationModule {}

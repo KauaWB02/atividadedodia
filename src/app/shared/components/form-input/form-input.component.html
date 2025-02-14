@@ -1,12 +1,26 @@
-<div class="w-full flex flex-col gap-2 relative">
-  <label [for]="id">{{ label }}</label>
-  <input
-    class="h-10 pl-2 border rounded-md"
-    [placeholder]="placeHolder"
-    [attr.data-cy]="dataCy"
-    [type]="type"
-    [formControl]="inputControl"
-    [id]="id"
-  />
-  <ng-content select="[showPassword]"></ng-content>
+<div
+  [ngClass]="containerInputAndLabel"
+  class="w-full flex flex-col gap-2 font-semibold">
+  <label
+    [ngClass]="styleClassesForLabel"
+    [attr.for]="id"
+    >{{ label }}</label
+  >
+  <div
+    [ngClass]="getContainerInputAndMessageErrorClasses()"
+    class="flex flex-col gap-3 relative">
+    <input
+      class="h-10 pl-2 border rounded-md font-normal"
+      [placeholder]="placeHolder"
+      [attr.data-cy]="dataCy"
+      [type]="type"
+      [formControl]="inputControl"
+      [attr.id]="id" />
+    <ng-content select="[showPassword]"></ng-content>
+    <ng-container *ngIf="inputControl.errors">
+      <activity-input-message-error
+        [error]="$any(inputControl.errors)"
+        [styleClass]="styleClassMessageError"></activity-input-message-error>
+    </ng-container>
+  </div>
 </div>

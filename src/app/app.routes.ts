@@ -15,15 +15,23 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'atividades',
+        // canMatch: [RoleGuard],
+        data: {
+          title: 'Atividades',
+          menuKey: 'activities',
+        },
+        loadChildren: () =>
+          import('./modules/activities/activities.module').then((m) => m.ActivitiesModule),
+      },
+      {
         path: 'login',
         // canMatch: [RoleGuard],
         data: {
           title: 'Fazer Login',
         },
         loadChildren: () =>
-          import('./authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
+          import('./authentication/authentication.module').then((m) => m.AuthenticationModule),
       },
     ],
   },
@@ -35,9 +43,6 @@ export const routes: Routes = [
       layout: 'sidebar',
     },
     children: [
-      // {
-      //   path: 'inicio',
-      // },
       {
         path: 'usuarios',
         // canMatch: [RoleGuard],
@@ -46,9 +51,7 @@ export const routes: Routes = [
           menuKey: 'USERS',
         },
         loadChildren: () =>
-          import('./authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
+          import('./authentication/authentication.module').then((m) => m.AuthenticationModule),
       },
     ],
   },
